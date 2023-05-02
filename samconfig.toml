@@ -1,0 +1,10 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "birthday-lambda"
+resolve_s3 = true
+s3_prefix = "birthday-lambda"
+region = "eu-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "Timeout=\"40\" MemorySize=\"128\" Entrypoint=\"bmcgavin.birthday.api\""
+image_repositories = []

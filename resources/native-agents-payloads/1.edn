@@ -1,0 +1,4 @@
+{:name "bmcgavin.birthday.api.LambdaEntrypoint",
+ :request {:event {:pathParameters {:message "Hello world"}},
+           :ctx {}},
+ :propagate true}
