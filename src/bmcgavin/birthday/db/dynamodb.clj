@@ -17,7 +17,7 @@
 
 (defn db-get [data]
   (when (nil? @ddb)
-    (reset! ddb (make-ddb data)))
+    (make-ddb data))
   (let [response (aws/invoke @ddb
                              {:op :GetItem
                               :request {:TableName "birthday"
@@ -28,7 +28,7 @@
 
 (defn db-put [data]
   (when (nil? @ddb)
-    (reset! ddb (make-ddb data)))
+    (make-ddb data))
   (let [response (aws/invoke @ddb
                              {:op :PutItem
                               :request {:TableName "birthday"
@@ -38,11 +38,13 @@
 
 ;; agent to aid with native image compilation
 (agent/in-context
- (let [_ (delay (make-ddb {:aws {:aws-region "us-east-1"
-                                 :aws-access-key-id "test"
-                                 :aws-secret-access-key "test"}
-                           :db-endpoint-protocol "http"
-                           :db-endpoint-host "localhost"
-                           :db-endpoint-port "4566"}))
-       response (aws/invoke @ddb {:op :ListTables})]
+ (let [client (aws/client {:api                  :dynamodb
+                           :region               "us-east-1"
+                           :credentials-provider (credentials/basic-credentials-provider
+                                                  {:access-key-id     "test"
+                                                   :secret-access-key "test"})
+                           :endpoint-override {:protocol :http
+                                               :hostname "localhost"
+                                               :port     4566}})
+       response (aws/invoke client {:op :ListTables})]
    (println response)))

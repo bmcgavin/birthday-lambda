@@ -4,16 +4,19 @@
             [clojure.data.json :as json]
             [compojure.core :refer [defroutes POST GET PUT]]
             [compojure.route :as route]
+            [clojure.tools.logging :as l]
 
             [fierycod.holy-lambda.core :as h]
             [fierycod.holy-lambda-ring-adapter.core :as hlra]
             [bmcgavin.birthday.date :refer [days-until-date valid?]]
             [bmcgavin.birthday.db :refer [db-get db-put]]))
 
+(set! *warn-on-reflection* true)
+
 (def config (atom nil))
 
 (defn fetch-config []
-  (println "fetch-config")
+  (l/debug "fetch-config")
   (let [db-endpoint-host-env (or (System/getenv "DB_ENDPOINT_HOST") "localhost")
         db-endpoint-host (cond
                            (= \$ (first db-endpoint-host-env))
@@ -37,13 +40,13 @@
                           :aws-region aws-region}})))
 
 (defn bad-request [message]
-  (println "bad-request")
+  (l/debug "bad-request")
   {:status 400
    :headers {"Content-Type" "application/json"}
    :body (json/write-str {:message message})})
 
 (defn success [message]
-  (println "success")
+  (l/debug "success")
   {:status 200
    :headers {"Content-Type" "application/json"}
    :body (json/write-str {:message message})})
@@ -54,7 +57,7 @@
   (merge data @config))
 
 (defn put [username payload]
-  (println "put")
+  (l/debug "put")
   (let [birthday (:dateOfBirth payload)
         valid (valid? birthday)]
     (if valid
@@ -64,7 +67,7 @@
       (bad-request "invalid dateOfBirth"))))
 
 (defn put-handler [{:keys [params body]}]
-  (println "put-handler")
+  (l/debug "put-handler")
   (if (nil? body)
     (bad-request "no request body")
     (let [username (:username params)
@@ -76,7 +79,7 @@
         (put username payload)))))
 
 (defn get-handler [{:keys [params]}]
-  (println "get-handler")
+  (l/debug "get-handler")
   (let [username (:username params)
         birthday (db-get (dbize {:username username}))
         days (cond
@@ -107,7 +110,7 @@
 (defonce server (atom nil))
 
 (defn stop-server []
-  (println "shutting down")
+  (l/info "shutting down")
   (when-not (nil? @server)
     (@server :timeout 1000)
     (reset! server nil)))
@@ -115,5 +118,5 @@
 (defn app [& args]
   (reset! server (http-server/run-server #'app-routes {:port 8080}))
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
-  (println (str "running")))
+  (l/info (str "running")))
 

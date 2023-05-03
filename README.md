@@ -75,3 +75,5 @@ To run the test suite :
 ```
 clj -X:test
 ```
+
+The Dynamo tests require a running Localstack container.

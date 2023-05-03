@@ -23,7 +23,11 @@
 }, {
   "name" : "[Ljava.lang.Object;"
 }, {
+  "name" : "[Ljava.lang.String;"
+}, {
   "name" : "[Ljava.nio.HeapByteBuffer;"
+}, {
+  "name" : "[Lsun.security.pkcs.SignerInfo;"
 }, {
   "name" : "[S"
 }, {
@@ -32,6 +36,18 @@
   "name" : "bmcgavin.birthday.api__init"
 }, {
   "name" : "bmcgavin.birthday.date__init"
+}, {
+  "name" : "bmcgavin.birthday.db.dynamodb$eval147",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "bmcgavin.birthday.db.dynamodb$eval268",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
 }, {
   "name" : "bmcgavin.birthday.db.dynamodb__init"
 }, {
@@ -56,18 +72,6 @@
   "name" : "clojure.asm.commons.GeneratorAdapter"
 }, {
   "name" : "clojure.asm.commons.Method"
-}, {
-  "name" : "clojure.core$eval147",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "clojure.core$eval268",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
 }, {
   "name" : "clojure.core.ArrayChunk"
 }, {
@@ -687,6 +691,12 @@
 }, {
   "name" : "cognitect.aws.client.impl__init"
 }, {
+  "name" : "cognitect.aws.client.protocol",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
   "name" : "cognitect.aws.client.protocol.Client"
 }, {
   "name" : "cognitect.aws.client.protocol__init"
@@ -714,6 +724,12 @@
   "name" : "cognitect.aws.http.HttpClient",
   "queryAllDeclaredMethods" : true,
   "queryAllPublicMethods" : true
+}, {
+  "name" : "cognitect.aws.http.cognitect",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
 }, {
   "name" : "cognitect.aws.http.cognitect$create",
   "methods" : [ {
@@ -830,6 +846,12 @@
   "name" : "cognitect.aws.util.ByteSource"
 }, {
   "name" : "cognitect.aws.util__init"
+}, {
+  "name" : "cognitect.http_client",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
 }, {
   "name" : "cognitect.http_client$append_buffer",
   "methods" : [ {
@@ -1043,7 +1065,25 @@
 }, {
   "name" : "com.fasterxml.jackson.datatype.jsr310.JavaTimeModule"
 }, {
+  "name" : "com.sun.crypto.provider.AESCipher$General",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "com.sun.crypto.provider.DHParameters",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "com.sun.crypto.provider.HmacCore$HmacSHA256",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "com.sun.crypto.provider.HmacCore$HmacSHA384",
   "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ ]
@@ -1067,7 +1107,7 @@
 }, {
   "name" : "fierycod.holy_lambda.agent__init"
 }, {
-  "name" : "fierycod.holy_lambda.core$entrypoint$fn__12994",
+  "name" : "fierycod.holy_lambda.core$entrypoint$fn__2761",
   "queryAllPublicConstructors" : true,
   "methods" : [ {
     "name" : "<init>",
@@ -1207,27 +1247,66 @@
   "name" : "java.lang.AssertionError",
   "queryAllPublicConstructors" : true
 }, {
-  "name" : "java.lang.Boolean"
+  "name" : "java.lang.Boolean",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
-  "name" : "java.lang.Byte"
+  "name" : "java.lang.Byte",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
   "name" : "java.lang.CharSequence"
 }, {
   "name" : "java.lang.Character"
 }, {
   "name" : "java.lang.Class",
-  "queryAllPublicMethods" : true
+  "queryAllPublicMethods" : true,
+  "methods" : [ {
+    "name" : "getModule",
+    "parameterTypes" : [ ]
+  } ]
 }, {
-  "name" : "java.lang.Double"
+  "name" : "java.lang.Double",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
-  "name" : "java.lang.Float"
+  "name" : "java.lang.Float",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
-  "name" : "java.lang.Integer"
+  "name" : "java.lang.Integer",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
   "name" : "java.lang.Iterable"
 }, {
   "name" : "java.lang.Long",
   "queryAllPublicMethods" : true
+}, {
+  "name" : "java.lang.Module",
+  "methods" : [ {
+    "name" : "getLayer",
+    "parameterTypes" : [ ]
+  }, {
+    "name" : "getName",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "java.lang.ModuleLayer",
+  "methods" : [ {
+    "name" : "configuration",
+    "parameterTypes" : [ ]
+  } ]
 }, {
   "name" : "java.lang.Number"
 }, {
@@ -1237,7 +1316,11 @@
 }, {
   "name" : "java.lang.Runnable"
 }, {
-  "name" : "java.lang.Short"
+  "name" : "java.lang.Short",
+  "queriedMethods" : [ {
+    "name" : "valueOf",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
 }, {
   "name" : "java.lang.StackTraceElement"
 }, {
@@ -1267,6 +1350,24 @@
   "name" : "java.lang.annotation.Annotation"
 }, {
   "name" : "java.lang.annotation.Retention"
+}, {
+  "name" : "java.lang.module.Configuration",
+  "methods" : [ {
+    "name" : "findModule",
+    "parameterTypes" : [ "java.lang.String" ]
+  } ]
+}, {
+  "name" : "java.lang.module.ModuleReference",
+  "methods" : [ {
+    "name" : "location",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "java.lang.module.ResolvedModule",
+  "methods" : [ {
+    "name" : "reference",
+    "parameterTypes" : [ ]
+  } ]
 }, {
   "name" : "java.lang.reflect.AccessibleObject",
   "methods" : [ {
@@ -1338,6 +1439,10 @@
   "name" : "java.security.MessageDigestSpi"
 }, {
   "name" : "java.security.SecureRandomParameters"
+}, {
+  "name" : "java.security.interfaces.RSAPrivateKey"
+}, {
+  "name" : "java.security.interfaces.RSAPublicKey"
 }, {
   "name" : "java.sql.Date"
 }, {
@@ -1468,7 +1573,7 @@
   "fields" : [ {
     "name" : "thisX500Name"
   } ],
-  "queriedMethods" : [ {
+  "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ "sun.security.x509.X500Name" ]
   } ]
@@ -1579,6 +1684,12 @@
   "name" : "org.eclipse.jetty.http.HttpFields",
   "queryAllPublicMethods" : true
 }, {
+  "name" : "org.eclipse.jetty.util.ModuleLocation",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "org.eclipse.jetty.util.log.Log",
   "queryAllPublicMethods" : true
 }, {
@@ -1648,6 +1759,24 @@
     "parameterTypes" : [ ]
   } ]
 }, {
+  "name" : "sun.security.provider.DSA$SHA224withDSA",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.DSA$SHA256withDSA",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.JavaKeyStore$DualFormatJKS",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "sun.security.provider.JavaKeyStore$JKS",
   "methods" : [ {
     "name" : "<init>",
@@ -1666,7 +1795,25 @@
     "parameterTypes" : [ ]
   } ]
 }, {
+  "name" : "sun.security.provider.SHA2$SHA224",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "sun.security.provider.SHA2$SHA256",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.SHA5$SHA384",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.SHA5$SHA512",
   "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ ]
@@ -1678,7 +1825,37 @@
     "parameterTypes" : [ ]
   } ]
 }, {
+  "name" : "sun.security.provider.certpath.PKIXCertPathValidator",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.rsa.PSSParameters",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "sun.security.rsa.RSAKeyFactory$Legacy",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.rsa.RSAPSSSignature",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.rsa.RSASignature$SHA224withRSA",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.rsa.RSASignature$SHA256withRSA",
   "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ ]
@@ -1695,6 +1872,8 @@
     "name" : "<init>",
     "parameterTypes" : [ ]
   } ]
+}, {
+  "name" : "sun.security.util.ObjectIdentifier"
 }, {
   "name" : "sun.security.x509.AuthorityInfoAccessExtension",
   "methods" : [ {
@@ -1719,6 +1898,8 @@
     "name" : "<init>",
     "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
   } ]
+}, {
+  "name" : "sun.security.x509.CertificateExtensions"
 }, {
   "name" : "sun.security.x509.CertificatePoliciesExtension",
   "methods" : [ {

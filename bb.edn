@@ -10,7 +10,7 @@
  :holy-lambda/options {:docker {;; Check https://docs.docker.com/network/
                                 ;; Network setting for future versions of HL will propagate to AWS SAM as well
                                 ;; Options: "host"|"bridge"|"overlay"|"none"|nil|"macvlan"
-                                :network nil
+                                :network "host"
 
                                 ;; HL runs some bb tasks in docker context. You can put additional resources to the context by using volumes.
                                 ;; ----------------------------------------------------------------------------
@@ -54,7 +54,7 @@
                                             "--report-unsupported-elements-at-runtime"
                                             "-H:+AllowIncompleteClasspath"
                                             "--install-exit-handlers"
-                                            "--initialize-at-build-time=jdk.xml.internal,com.sun.org.apache.xerces.internal.impl.XMLEntityManager,com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDProcessor,com.sun.org.apache.xerces.internal.impl.dtd.XMLNSDTDValidator,com.sun.org.apache.xerces.internal.util.PropertyState,com.sun.org.apache.xerces.internal.impl.XMLEntityScanner,com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl,javax.xml.parsers.FactoryFinder,com.sun.org.apache.xerces.internal.util.FeatureState,com.sun.org.apache.xerces.internal.impl.XMLVersionDetector,com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl,com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLScanner,com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator,com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl,javax.xml.datatype.DatatypeFactory,org.apache.commons.logging.impl.Log4JLogger,com.taoensso.faraday,org.joda.time,software.amazon.ion,org.apache.commons.logging,dynamodb.mask,dynamodb.api,cognitect.aws,cognitect.http_client"
+                                            "--initialize-at-build-time=jdk.xml.internal,com.sun.org.apache.xerces.internal.impl.XMLEntityManager,com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDProcessor,com.sun.org.apache.xerces.internal.impl.dtd.XMLNSDTDValidator,com.sun.org.apache.xerces.internal.util.PropertyState,com.sun.org.apache.xerces.internal.impl.XMLEntityScanner,com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl,javax.xml.parsers.FactoryFinder,com.sun.org.apache.xerces.internal.util.FeatureState,com.sun.org.apache.xerces.internal.impl.XMLVersionDetector,com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl,com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl,com.sun.org.apache.xerces.internal.impl.XMLScanner,com.sun.org.apache.xerces.internal.impl.dtd.XMLDTDValidator,com.sun.org.apache.xerces.internal.jaxp.datatype.DatatypeFactoryImpl,javax.xml.datatype.DatatypeFactory,org.apache.commons.logging.impl.Log4JLogger,com.taoensso.faraday,org.joda.time,software.amazon.ion,org.apache.commons.logging,dynamodb.mask,dynamodb.api,cognitect.aws,cognitect.aws.http,cognitect.http_client"
                                             "--no-server"]}}
 
  :tasks {:requires            ([holy-lambda.tasks])

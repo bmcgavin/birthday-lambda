@@ -1,6 +1,8 @@
 {
   "resources" : {
     "includes" : [ {
+      "pattern" : "\\QMETA-INF/services/org.eclipse.jetty.http.HttpFieldPreEncoder\\E"
+    }, {
       "pattern" : "\\Qclojure/version.properties\\E"
     }, {
       "pattern" : "\\Qcognitect/aws/dynamodb/service.edn\\E"
