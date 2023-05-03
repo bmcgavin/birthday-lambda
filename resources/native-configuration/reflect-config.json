@@ -29,6 +29,12 @@
 }, {
   "name" : "[Z"
 }, {
+  "name": "cognitect.aws.client.protocol",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
   "name" : "cognitect.http_client.Client",
   "allPublicFields" : true,
   "queryAllPublicConstructors" : true

@@ -30,7 +30,7 @@ The terraform output is an API Gateway URL to call, e.g.
 
 http://ftyes33eaw.execute-api.localhost.localstack.cloud:4566/local/
 
-Add `hello/username` to this URL to get your API entrypoints.
+Add `hello/username` to this URL to get the defined API entrypoints.
 
 GETs to this route will read from a DynamoDB instance and tell you how many days until the user's birthday (if known)
 
@@ -52,7 +52,7 @@ Or to target Localstack's DynamoDB :
 AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test \
 DB_TYPE=dynamodb DB_ENDPOINT_PORT=4566 \
 DB_ENDPOINT_PROTOCOL=http LOCALSTACK_HOST=localhost \
-DB_ENDPOINT_HOST='$LOCALSTACK_HOST' clj
+DB_ENDPOINT_HOST='$LOCALSTACK_HOST' AWS_REGION=us-east-1 clj
 ```
 
 Then start the server:
@@ -66,4 +66,12 @@ You can now use http://localhost:8080/ as your endpoint. Restart the server afte
 ```
 bb hl:clean
 bb hl:compile
+```
+
+# Testing
+
+To run the test suite :
+
+```
+clj -X:test
 ```

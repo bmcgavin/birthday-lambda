@@ -46,4 +46,4 @@
     (let [response (api/put-handler {:params {:username "today"} :body (io/reader (char-array (json/write-str {:dateOfBirth (.toString (ld/now))})))})]
       (is (= 204 (:status response))))
     (let [response (api/put-handler {:params {:username "today"} :body (io/reader (char-array (json/write-str {:dateOfBirth "INVALID_DATE"})))})]
-      (is (= 204 (:status response))))))
+      (is (= 400 (:status response))))))

@@ -2,6 +2,11 @@
   (:require [cljc.java-time.local-date :as ld]
             [cljc.java-time.duration :as d]))
 
+(defn valid? [date]
+  (try
+    (ld/parse date)
+    (catch Exception _ nil)))
+
 (defn days-until-date
   [date & args]
   (let [now (if (nil? args) (.toString (ld/now)) (first args))

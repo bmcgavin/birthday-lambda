@@ -5,11 +5,9 @@
             [compojure.core :refer [defroutes POST GET PUT]]
             [compojure.route :as route]
 
-            [cognitect.aws.client.api :as aws]
             [fierycod.holy-lambda.core :as h]
-            [fierycod.holy-lambda.agent :as agent]
             [fierycod.holy-lambda-ring-adapter.core :as hlra]
-            [bmcgavin.birthday.date :refer [days-until-date]]
+            [bmcgavin.birthday.date :refer [days-until-date valid?]]
             [bmcgavin.birthday.db :refer [db-get db-put]]))
 
 (def config (atom nil))
@@ -57,10 +55,13 @@
 
 (defn put [username payload]
   (println "put")
-  (let [birthday (:dateOfBirth payload)]
-    (db-put (dbize {:username username :birthday birthday}))
-    {:status 204
-     :headers {}}))
+  (let [birthday (:dateOfBirth payload)
+        valid (valid? birthday)]
+    (if valid
+      (do (db-put (dbize {:username username :birthday birthday}))
+          {:status 204
+           :headers {}})
+      (bad-request "invalid dateOfBirth"))))
 
 (defn put-handler [{:keys [params body]}]
   (println "put-handler")
@@ -93,7 +94,7 @@
 
 (defroutes app-routes
   (POST "/hello/:username" [] get-handler)
-  (GET "/hello/:username" [] get-handler)
+  (GET "/hello/:username" [] get-handler) ; duplicated due to lambda's post invocation requirement
   (PUT "/hello/:username" [] put-handler)
   (route/not-found bad-request))
 
@@ -116,9 +117,3 @@
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
   (println (str "running")))
 
-;; agent to aid with native image compilation
-(agent/in-context
- (let [dynamodb (delay (aws/client {:api :dynamodb
-                                    :region "eu-west-1"}))
-       response (aws/invoke dynamodb {:op :ListTables})]
-   (println response)))
