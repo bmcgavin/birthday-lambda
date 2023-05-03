@@ -29,7 +29,7 @@
         db-endpoint (str db-endpoint-protocol "://" db-endpoint-host ":" db-endpoint-port)
         aws-access-key-id (or (System/getenv "AWS_ACCESS_KEY_ID") "")
         aws-secret-access-key (or (System/getenv "AWS_SECRET_ACCESS_KEY") "")
-        aws-region (or (System/getenv "AWS_REGION") "us-east-1")]
+        aws-region (or (System/getenv "AWS_REGION") "")]
     (reset! config {:db-endpoint db-endpoint
                     :db-endpoint-protocol db-endpoint-protocol
                     :db-endpoint-host db-endpoint-host
@@ -61,9 +61,12 @@
   (let [birthday (:dateOfBirth payload)
         valid (valid? birthday)]
     (if valid
-      (do (db-put (dbize {:username username :birthday birthday}))
+      (let [response (db-put (dbize {:username username :birthday birthday}))]
+        (println response)
+        (if (empty? response)
           {:status 204
-           :headers {}})
+           :headers {}}
+          (bad-request response)))
       (bad-request "invalid dateOfBirth"))))
 
 (defn put-handler [{:keys [params body]}]
@@ -119,4 +122,3 @@
   (reset! server (http-server/run-server #'app-routes {:port 8080}))
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
   (l/info (str "running")))
-

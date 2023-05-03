@@ -8,7 +8,7 @@ module "environment" {
 
   name    = local.name
   env     = local.env
-  region  = "eu-west-1"
+  region  = var.region
   vpc_id  = var.vpc_id
   runtime = "provided"
   variables = {

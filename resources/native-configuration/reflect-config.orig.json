@@ -658,12 +658,6 @@
 }, {
   "name" : "cognitect.aws.client.impl__init"
 }, {
-  "name" : "cognitect.aws.client.protocol",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
-}, {
   "name" : "cognitect.aws.client.protocol.Client"
 }, {
   "name" : "cognitect.aws.client.protocol__init"
@@ -689,12 +683,6 @@
   "name" : "cognitect.aws.endpoint__init"
 }, {
   "name" : "cognitect.aws.http.HttpClient"
-}, {
-  "name" : "cognitect.aws.http.cognitect",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
 }, {
   "name" : "cognitect.aws.http.cognitect__init"
 }, {
@@ -736,12 +724,6 @@
 }, {
   "name" : "cognitect.aws.util__init"
 }, {
-  "name" : "cognitect.http_client",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
-}, {
   "name" : "cognitect.http_client.Client",
   "allPublicFields" : true,
   "queryAllPublicConstructors" : true
@@ -749,24 +731,6 @@
   "name" : "cognitect.http_client.IClient"
 }, {
   "name" : "cognitect.http_client__init"
-}, {
-  "name" : "com.amazonaws.ClientConfiguration",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
-}, {
-  "name" : "com.amazonaws.retry.PredefinedBackoffStrategies$EqualJitterBackoffStrategy",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
-}, {
-  "name" : "com.amazonaws.retry.PredefinedBackoffStrategies$FullJitterBackoffStrategy",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
 }, {
   "name" : "com.fasterxml.jackson.core.JsonFactory"
 }, {
@@ -816,7 +780,19 @@
     "parameterTypes" : [ ]
   } ]
 }, {
+  "name" : "com.sun.crypto.provider.TlsKeyMaterialGenerator",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
   "name" : "com.sun.crypto.provider.TlsMasterSecretGenerator",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "com.sun.crypto.provider.TlsPrfGenerator$V12",
   "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ ]
@@ -1358,12 +1334,6 @@
   "name" : "jsonista.jackson.SymbolSerializer"
 }, {
   "name" : "medley.core__init"
-}, {
-  "name" : "org.apache.commons.logging.impl.LogFactoryImpl",
-  "allDeclaredMethods" : true,
-  "allPublicMethods" : true,
-  "allDeclaredConstructors" : true,
-  "allPublicConstructors" : true
 }, {
   "name" : "org.eclipse.jetty.client.HttpClient",
   "queryAllPublicMethods" : true,

@@ -26,6 +26,14 @@ terraform -chdir=terraform/environments/local plan
 terraform -chdir=terraform/environments/local apply
 ```
 
+Deploy to AWS by setting your VPC ID and region in terraform/environments/aws/terraform.tfvars.json (or on the command line) and running these:
+
+```
+terraform -chdir=terraform/environments/aws init
+terraform -chdir=terraform/environments/aws plan
+terraform -chdir=terraform/environments/aws apply
+```
+
 The terraform output is an API Gateway URL to call, e.g.
 
 http://ftyes33eaw.execute-api.localhost.localstack.cloud:4566/local/

@@ -63,7 +63,7 @@ data "aws_iam_policy_document" "lambda_execution_logs" {
       "dynamodb:PutItem"
     ]
     resources = [
-      "arn:aws:ssm:*:${data.aws_caller_identity.current.account_id}:table/*"
+      "arn:aws:dynamodb:*:${data.aws_caller_identity.current.account_id}:table/*"
     ]
   }
 }
