@@ -85,3 +85,11 @@ clj -X:test
 ```
 
 The Dynamo tests require a running Localstack container.
+
+# Architecture
+
+Any changes to the API Gateway resources will cause a new API Gateway deployment to trigger, the create_before_destroy lifecycle means that this will cause no downtime.
+
+Deployments can be pushed to staging first as all resources are scoped to the environment. This combination gives a possibility of no downtime deployments.
+
+![Architecture diagram of the VPC containing an API Gateway with two endpoints that each trigger the same Lambda, which accesses DynamoDB](images/Technical%20Diagrams%20-%20VPC.jpg)

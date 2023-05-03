@@ -1,4 +1,5 @@
 resource "aws_api_gateway_account" "account" {
+  count               = var.own_api_gateway_account ? 1 : 0
   cloudwatch_role_arn = aws_iam_role.api_gateway_cloudwatch.arn
 }
 

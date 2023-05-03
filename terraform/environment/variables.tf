@@ -21,3 +21,8 @@ variable "runtime" {
 variable "variables" {
   type = map(string)
 }
+
+variable "own_api_gateway_account" {
+  type = bool
+  default = true
+}

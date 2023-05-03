@@ -1,5 +1,5 @@
 resource "aws_dynamodb_table" "birthday" {
-  name     = var.name
+  name     = "${var.name}-${var.env}"
   hash_key = "username"
 
   billing_mode   = "PROVISIONED"
