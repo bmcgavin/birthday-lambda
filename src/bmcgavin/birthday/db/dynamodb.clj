@@ -21,9 +21,6 @@
 
 (defn db-get [data]
   (let [ddb (make-ddb data)
-        _ (println (:region @ddb))
-        _ (println (:endpoint-override @ddb))
-        _ (println (:credentials-provider @ddb))
         response (aws/invoke @ddb
                              {:op :GetItem
                               :request {:TableName "birthday"
