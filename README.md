@@ -92,4 +92,6 @@ Any changes to the API Gateway resources will cause a new API Gateway deployment
 
 Deployments can be pushed to staging first as all resources are scoped to the environment. This combination gives a possibility of no downtime deployments.
 
-![Architecture diagram of the VPC containing an API Gateway with two endpoints that each trigger the same Lambda, which accesses DynamoDB](images/Technical%20Diagrams%20-%20VPC.jpg)
+This concept of overlapping environments can co-exist in the same VPC, as shown:
+
+![Architecture diagram of the VPC containing a pair of deployments, each with an API Gateway with two endpoints that each trigger the same Lambda, which accesses DynamoDB](images/Technical%20Diagrams%20-%20VPC.jpg)
