@@ -2,6 +2,14 @@
   "resources" : {
     "includes" : [ {
       "pattern" : "\\Qclojure/version.properties\\E"
+    }, {
+      "pattern" : "\\Qcognitect/aws/dynamodb/service.edn\\E"
+    }, {
+      "pattern" : "\\Qcognitect/aws/endpoints.edn\\E"
+    }, {
+      "pattern" : "\\Qcognitect_aws_http.edn\\E"
+    }, {
+      "pattern" : "\\Qorg/eclipse/jetty/version/build.properties\\E"
     } ]
   },
   "bundles" : [ ]

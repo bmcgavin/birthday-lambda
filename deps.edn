@@ -1,14 +1,27 @@
-{:deps {org.clojure/clojure                  {:mvn/version "1.10.3"}
-        io.github.FieryCod/holy-lambda       {:mvn/version "0.6.6"}
-        com.github.clj-easy/graal-build-time {:mvn/version "0.1.4"}
-        compojure/compojure {:mvn/version "1.7.0"}
-        org.clojure/data.json {:mvn/version "2.4.0"}
+{:deps {org.clojure/clojure    {:mvn/version "1.10.3"}
+        org.clojure/data.json  {:mvn/version "2.4.0"}
         org.clojure/core.async {:mvn/version "1.6.673"}
 
+        io.github.FieryCod/holy-lambda              {:mvn/version "0.6.6"}
         io.github.FieryCod/holy-lambda-ring-adapter {:mvn/version "0.1.2"}
+        com.github.clj-easy/graal-build-time        {:mvn/version "0.1.4"}
 
-        com.github.igrishaev/dynamodb {:mvn/version "0.1.2"}
-        com.widdindustries/cljc.java-time {:mvn/version "0.1.21"}}
+        http-kit/http-kit   {:mvn/version "2.6.0"}
+        compojure/compojure {:mvn/version "1.7.0"}
+
+       ;;  com.taoensso/faraday {:mvn/version "1.12.0"}
+       ;;  com.github.igrishaev/dynamodb {:mvn/version "0.1.2"}  
+        com.cognitect.aws/api       {:mvn/version "0.8.666"}
+        com.cognitect.aws/endpoints {:mvn/version "1.1.12.456"}
+        com.cognitect.aws/dynamodb  {:mvn/version "847.2.1365.0"}
+
+        com.widdindustries/cljc.java-time {:mvn/version "0.1.21"}
+
+       ;;  com.amazonaws/aws-lambda-java-log4j2 {:mvn/version "1.2.0"}
+       ;;  org.apache.logging.log4j/log4j-jcl   {:mvn/version "2.2"}
+       ;;  org.apache.logging.log4j/log4j-core  {:mvn/version "2.8.2"}
+       ;;  org.apache.logging.log4j/log4j-api   {:mvn/version "2.8.2"}
+        }
 
  :paths   ["src" "resources"]
 

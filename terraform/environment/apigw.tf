@@ -1,3 +1,7 @@
+resource "aws_api_gateway_account" "account" {
+  cloudwatch_role_arn = aws_iam_role.api_gateway_cloudwatch.arn
+}
+
 resource "aws_api_gateway_deployment" "api" {
   rest_api_id = aws_api_gateway_rest_api.api.id
 
@@ -5,7 +9,11 @@ resource "aws_api_gateway_deployment" "api" {
     redeployment = sha1(jsonencode([
       aws_api_gateway_resource.api_hello,
       aws_api_gateway_resource.api_hello_proxy,
-      aws_api_gateway_method.api_hello_proxy_get
+      aws_api_gateway_method.api_hello_proxy_get,
+      aws_api_gateway_integration.api_hello_proxy_get,
+      aws_api_gateway_method.api_hello_proxy_put,
+      aws_api_gateway_integration.api_hello_proxy_put,
+      aws_api_gateway_rest_api.api
     ]))
   }
 
@@ -42,7 +50,7 @@ resource "aws_api_gateway_integration" "api_hello_proxy_get" {
   cache_namespace         = aws_api_gateway_resource.api_hello_proxy.id
   connection_type         = "INTERNET"
   http_method             = aws_api_gateway_method.api_hello_proxy_get.http_method
-  integration_http_method = "GET"
+  integration_http_method = "POST"
   passthrough_behavior    = "WHEN_NO_MATCH"
   request_parameters      = {}
   request_templates       = {}
@@ -107,6 +115,10 @@ resource "aws_api_gateway_stage" "api" {
   tags_all              = {}
   variables             = {}
   xray_tracing_enabled  = false
+  access_log_settings {
+    destination_arn = aws_cloudwatch_log_group.apigateway_access.arn
+    format          = "{\"requestId\":\"$$context.requestId\",\"ip\":\"$$context.identity.sourceIp\",\"caller\":\"$$context.identity.caller\",\"user\":\"$$context.identity.user\",\"requestTime\":$$context.requestTimeEpoch,\"httpMethod\":\"$$context.httpMethod\",\"resourcePath\":\"$$context.resourcePath\",\"status\":$$context.status,\"protocol\":\"$$context.protocol\",\"responseLength\":$$context.responseLength}"
+  }
 }
 
 resource "aws_api_gateway_method_settings" "api" {

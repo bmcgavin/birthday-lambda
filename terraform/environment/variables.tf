@@ -17,3 +17,7 @@ variable "vpc_id" {
 variable "runtime" {
   type = string
 }
+
+variable "variables" {
+  type = map(string)
+}

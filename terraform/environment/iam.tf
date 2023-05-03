@@ -18,18 +18,18 @@ data "aws_iam_policy_document" "lambda_execution_assume_role" {
 }
 
 data "aws_iam_policy_document" "lambda_execution_logs" {
-  #   statement {
-  #     actions = [
-  #       "ec2:DescribeNetworkInterfaces",
-  #       "ec2:CreateNetworkInterface",
-  #       "ec2:DeleteNetworkInterface",
-  #       "ec2:DescribeInstances",
-  #       "ec2:AttachNetworkInterface",
-  #     ]
-  #     resources = [
-  #       "*",
-  #     ]
-  #   }
+  statement {
+    actions = [
+      "ec2:DescribeNetworkInterfaces",
+      "ec2:CreateNetworkInterface",
+      "ec2:DeleteNetworkInterface",
+      "ec2:DescribeInstances",
+      "ec2:AttachNetworkInterface",
+    ]
+    resources = [
+      "*",
+    ]
+  }
   statement {
     actions = [
       "logs:CreateLogStream",
@@ -85,4 +85,47 @@ resource "aws_iam_role_policy_attachment" "lambda" {
   role       = aws_iam_role.lambda.name
   policy_arn = aws_iam_policy.lambda_execution_logs.arn
 
+}
+
+data "aws_iam_policy_document" "api_gateway_cloudwatch" {
+  statement {
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+      "logs:PutLogEvents",
+      "logs:GetLogEvents",
+      "logs:FilterLogEvents"
+    ]
+
+    resources = ["*"]
+  }
+}
+
+resource "aws_iam_policy" "api_gateway_cloudwatch" {
+  name   = "ApiGatewayCloudwatchPolicy"
+  policy = data.aws_iam_policy_document.api_gateway_cloudwatch.json
+}
+
+data "aws_iam_policy_document" "api_gateway_cloudwatch_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["apigateway.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "api_gateway_cloudwatch" {
+  name               = "ApiGatewayCloudwatchRole"
+  description        = "Role for API Gateway writing to Cloudwatch"
+  assume_role_policy = data.aws_iam_policy_document.api_gateway_cloudwatch_assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "api_gateway_cloudwatch" {
+  role       = aws_iam_role.api_gateway_cloudwatch.name
+  policy_arn = aws_iam_policy.api_gateway_cloudwatch.arn
 }

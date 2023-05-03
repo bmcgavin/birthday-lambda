@@ -1,6 +1,6 @@
 locals {
   name = "birthday"
-  env  = "local"
+  env  = "staging"
 }
 
 module "environment" {
@@ -8,13 +8,13 @@ module "environment" {
 
   name    = local.name
   env     = local.env
-  region  = "us-east-1"
-  vpc_id  = ""
+  region  = "eu-west-1"
+  vpc_id  = var.vpc_id
   runtime = "provided"
   variables = {
     DB_TYPE              = "dynamodb"
-    DB_ENDPOINT_HOST     = "$LOCALSTACK_HOSTNAME"
-    DB_ENDPOINT_PORT     = "4566"
-    DB_ENDPOINT_PROTOCOL = "http"
+    DB_ENDPOINT_HOST     = "dynamodb.${var.region}.amazonaws.com"
+    DB_ENDPOINT_PORT     = "443"
+    DB_ENDPOINT_PROTOCOL = "https"
   }
 }

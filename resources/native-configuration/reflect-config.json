@@ -11,6 +11,8 @@
 }, {
   "name" : "[J"
 }, {
+  "name" : "[Lclojure.asm.Type;"
+}, {
   "name" : "[Lcom.fasterxml.jackson.databind.deser.Deserializers;"
 }, {
   "name" : "[Lcom.fasterxml.jackson.databind.deser.KeyDeserializers;"
@@ -21,15 +23,60 @@
 }, {
   "name" : "[Ljava.lang.Object;"
 }, {
+  "name" : "[Ljava.nio.HeapByteBuffer;"
+}, {
   "name" : "[S"
 }, {
   "name" : "[Z"
+}, {
+  "name" : "cognitect.http_client.Client",
+  "allPublicFields" : true,
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "com.amazonaws.ClientConfiguration",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
+  "name" : "com.amazonaws.retry.PredefinedBackoffStrategies$EqualJitterBackoffStrategy",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
+  "name" : "com.amazonaws.retry.PredefinedBackoffStrategies$FullJitterBackoffStrategy",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
 }, {
   "name" : "com.fasterxml.jackson.databind.ext.Java7SupportImpl",
   "methods" : [ {
     "name" : "<init>",
     "parameterTypes" : [ ]
   } ]
+}, {
+  "name" : "com.sun.crypto.provider.HmacCore$HmacSHA256",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "com.sun.crypto.provider.TlsMasterSecretGenerator",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "java.lang.AssertionError",
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "java.lang.Class",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "java.lang.Long",
+  "queryAllPublicMethods" : true
 }, {
   "name" : "java.lang.String",
   "queryAllPublicMethods" : true,
@@ -38,11 +85,43 @@
     "parameterTypes" : [ "java.lang.CharSequence" ]
   } ]
 }, {
+  "name" : "java.lang.System",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "java.lang.Thread",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
+  "name" : "java.lang.Throwable",
+  "queryAllPublicMethods" : true
+}, {
   "name" : "java.lang.reflect.AccessibleObject",
   "methods" : [ {
     "name" : "canAccess",
     "parameterTypes" : [ "java.lang.Object" ]
   } ]
+}, {
+  "name" : "java.lang.reflect.AccessibleObject",
+  "methods" : [ {
+    "name" : "canAccess",
+    "parameterTypes" : [ "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "java.nio.ByteBuffer",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "java.security.AlgorithmParametersSpi"
+}, {
+  "name" : "java.security.KeyStoreSpi"
+}, {
+  "name" : "java.security.MessageDigestSpi"
+}, {
+  "name" : "java.security.SecureRandomParameters"
+}, {
+  "name" : "java.util.List",
+  "queryAllPublicMethods" : true
 }, {
   "name" : "java.util.Properties",
   "queryAllPublicMethods" : true,
@@ -50,10 +129,204 @@
     "name" : "getProperty",
     "parameterTypes" : [ "java.lang.String" ]
   } ]
-} , {
-  "name": "java.lang.Thread",
-    "allDeclaredConstructors" : true,
-    "allPublicConstructors" : true,
-    "allDeclaredMethods" : true,
-    "allPublicMethods" : true
-}]
+}, {
+  "name" : "java.util.concurrent.LinkedBlockingQueue",
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "java.util.logging.Logger",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "javax.security.auth.x500.X500Principal",
+  "fields" : [ {
+    "name" : "thisX500Name"
+  } ],
+  "queriedMethods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "sun.security.x509.X500Name" ]
+  } ]
+}, {
+  "name" : "org.apache.commons.logging.impl.LogFactoryImpl",
+  "allDeclaredMethods" : true,
+  "allPublicMethods" : true,
+  "allDeclaredConstructors" : true,
+  "allPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.client.HttpClient",
+  "queryAllPublicMethods" : true,
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.client.ProxyConfiguration",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.client.Socks4Proxy",
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.client.api.Request",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.client.api.Response",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.client.api.Result",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.client.util.ByteBufferContentProvider",
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.http.HttpField",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.http.HttpFields",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.util.log.Log",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.util.log.Slf4jLog"
+}, {
+  "name" : "org.eclipse.jetty.util.resource.Resource",
+  "queryAllPublicMethods" : true
+}, {
+  "name" : "org.eclipse.jetty.util.ssl.SslContextFactory",
+  "queryAllPublicMethods" : true,
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.util.thread.QueuedThreadPool",
+  "queryAllPublicMethods" : true,
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "org.eclipse.jetty.util.thread.ScheduledExecutorScheduler",
+  "queryAllPublicConstructors" : true
+}, {
+  "name" : "sun.security.pkcs12.PKCS12KeyStore",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.JavaKeyStore$JKS",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.NativePRNG",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.SHA",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.SHA2$SHA256",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.provider.X509Factory",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.rsa.RSAKeyFactory$Legacy",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.ssl.SSLContextImpl$TLSContext",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ ]
+  } ]
+}, {
+  "name" : "sun.security.x509.AuthorityInfoAccessExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.AuthorityKeyIdentifierExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.BasicConstraintsExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.CRLDistributionPointsExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.CertificatePoliciesExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.ExtendedKeyUsageExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.IssuerAlternativeNameExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.KeyUsageExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.NetscapeCertTypeExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.PrivateKeyUsageExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.SubjectAlternativeNameExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+}, {
+  "name" : "sun.security.x509.SubjectKeyIdentifierExtension",
+  "methods" : [ {
+    "name" : "<init>",
+    "parameterTypes" : [ "java.lang.Boolean", "java.lang.Object" ]
+  } ]
+} ]

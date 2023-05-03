@@ -4,7 +4,8 @@
             [clojure.data.json :as json]
 
             [bmcgavin.birthday.api :as api]
-            [bmcgavin.birthday.db.mock :as db.mock]))
+            [bmcgavin.birthday.db.mock :as db.mock]
+            [clojure.java.io :as io]))
 
 (def now (ld/now))
 (def yesterday (-> now
@@ -39,3 +40,10 @@
     (let [response (api/get-handler {:params {:username "tomorrow"}})
           body (json/read-str (:body response) :key-fn keyword)]
       (is (= "Hello, tomorrow! Your birthday is in 1 day(s)" (:message body))))))
+
+(deftest put-handler-test
+  (testing "put handler"
+    (let [response (api/put-handler {:params {:username "today"} :body (io/reader (char-array (json/write-str {:dateOfBirth (.toString (ld/now))})))})]
+      (is (= 204 (:status response))))
+    (let [response (api/put-handler {:params {:username "today"} :body (io/reader (char-array (json/write-str {:dateOfBirth "INVALID_DATE"})))})]
+      (is (= 204 (:status response))))))

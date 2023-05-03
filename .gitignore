@@ -30,3 +30,8 @@ choly.egg-info
 .clj-kondo/.cache
 .holy-lambda
 template-modified.yml
+.localstack-volume
+.cpcache
+.terraform
+terraform.tfstate*
+terraform.tfvars*

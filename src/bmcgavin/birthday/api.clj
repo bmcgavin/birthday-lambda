@@ -2,11 +2,12 @@
   (:gen-class)
   (:require [org.httpkit.server :as http-server]
             [clojure.data.json :as json]
-            [compojure.core :refer [defroutes GET PUT]]
+            [compojure.core :refer [defroutes POST GET PUT]]
             [compojure.route :as route]
 
-            [fierycod.holy-lambda.response :as hr]
+            [cognitect.aws.client.api :as aws]
             [fierycod.holy-lambda.core :as h]
+            [fierycod.holy-lambda.agent :as agent]
             [fierycod.holy-lambda-ring-adapter.core :as hlra]
             [bmcgavin.birthday.date :refer [days-until-date]]
             [bmcgavin.birthday.db :refer [db-get db-put]]))
@@ -15,25 +16,27 @@
 
 (defn fetch-config []
   (println "fetch-config")
-  (let [db-endpoint-host-env (or (System/getenv "DB_ENDPOINT_HOST") "")
+  (let [db-endpoint-host-env (or (System/getenv "DB_ENDPOINT_HOST") "localhost")
         db-endpoint-host (cond
                            (= \$ (first db-endpoint-host-env))
                            (System/getenv (apply str (drop 1 db-endpoint-host-env)))
                            :else
                            db-endpoint-host-env)
         db-endpoint-protocol (or (System/getenv "DB_ENDPOINT_PROTOCOL") "https")
-        db-endpoint-port (or (System/getenv "DB_ENDPOINT_PORT") "8080")
-        db-type (or (keyword (System/getenv "DB_TYPE")) "")
+        db-endpoint-port (or (System/getenv "DB_ENDPOINT_PORT") "4566")
+        db-type (keyword (or (System/getenv "DB_TYPE") "dynamodb"))
         db-endpoint (str db-endpoint-protocol "://" db-endpoint-host ":" db-endpoint-port)
         aws-access-key-id (or (System/getenv "AWS_ACCESS_KEY_ID") "")
         aws-secret-access-key (or (System/getenv "AWS_SECRET_ACCESS_KEY") "")
         aws-region (or (System/getenv "AWS_REGION") "us-east-1")]
     (reset! config {:db-endpoint db-endpoint
+                    :db-endpoint-protocol db-endpoint-protocol
+                    :db-endpoint-host db-endpoint-host
+                    :db-endpoint-port db-endpoint-port
                     :db-type db-type
                     :aws {:aws-access-key-id aws-access-key-id
                           :aws-secret-access-key aws-secret-access-key
-                          :aws-region aws-region}})
-    (println @config)))
+                          :aws-region aws-region}})))
 
 (defn bad-request [message]
   (println "bad-request")
@@ -54,7 +57,6 @@
 
 (defn put [username payload]
   (println "put")
-
   (let [birthday (:dateOfBirth payload)]
     (db-put (dbize {:username username :birthday birthday}))
     {:status 204
@@ -62,12 +64,10 @@
 
 (defn put-handler [{:keys [params body]}]
   (println "put-handler")
-  (println params)
   (if (nil? body)
     (bad-request "no request body")
     (let [username (:username params)
-          payload (json/read-str (slurp body) :key-fn keyword)
-          _ (println payload)]
+          payload (json/read-str (slurp body) :key-fn keyword)]
       (cond
         (or (nil? payload) (nil? username))
         (bad-request "invalid request body or user found in path")
@@ -92,6 +92,7 @@
       (success (str "Hello, " username "! Your birthday is in " days " day(s)")))))
 
 (defroutes app-routes
+  (POST "/hello/:username" [] get-handler)
   (GET "/hello/:username" [] get-handler)
   (PUT "/hello/:username" [] put-handler)
   (route/not-found bad-request))
@@ -114,3 +115,10 @@
   (reset! server (http-server/run-server #'app-routes {:port 8080}))
   (.addShutdownHook (Runtime/getRuntime) (Thread. stop-server))
   (println (str "running")))
+
+;; agent to aid with native image compilation
+(agent/in-context
+ (let [dynamodb (delay (aws/client {:api :dynamodb
+                                    :region "eu-west-1"}))
+       response (aws/invoke dynamodb {:op :ListTables})]
+   (println response)))

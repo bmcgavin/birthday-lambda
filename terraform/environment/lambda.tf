@@ -7,12 +7,7 @@ resource "aws_lambda_function" "lambda" {
     "x86_64",
   ]
   environment {
-    variables = {
-      DB_TYPE              = "dynamodb"
-      DB_ENDPOINT_HOST     = "$LOCALSTACK_HOSTNAME"
-      DB_ENDPOINT_PORT     = "4566"
-      DB_ENDPOINT_PROTOCOL = "http"
-    }
+    variables = var.variables
   }
   function_name                  = "${var.name}-${var.env}"
   filename                       = "${path.module}/../../.holy-lambda/build/latest.zip"
@@ -30,4 +25,12 @@ resource "aws_lambda_function" "lambda" {
     mode = "PassThrough"
   }
   depends_on = [data.local_file.archive]
+}
+
+resource "aws_lambda_permission" "lambda" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "arn:aws:execute-api:${var.region}:${data.aws_caller_identity.current.account_id}:${aws_api_gateway_rest_api.api.id}/*/*"
+  statement_id  = "${var.name}-${var.env}"
 }
