@@ -1,6 +1,15 @@
 (ns bmcgavin.birthday.db.dynamodb
   (:require [cognitect.aws.client.api :as aws]
             [cognitect.aws.credentials :as credentials]
+            [cognitect.aws.http.cognitect]
+            [cognitect.aws.protocols.ec2]
+            [cognitect.aws.protocols.json]
+            [cognitect.aws.protocols.query]
+            [cognitect.aws.protocols.rest]
+            [cognitect.aws.protocols.rest-xml]
+            [cognitect.aws.protocols.rest-json]
+
+
             [fierycod.holy-lambda.agent :as agent]))
 
 (def ddb (atom nil))
@@ -39,6 +48,7 @@
 ;; agent to aid with native image compilation
 (agent/in-context
  (let [client (aws/client {:api                  :dynamodb
+                           :http-client          (cognitect.aws.http.cognitect/create)
                            :region               "us-east-1"
                            :credentials-provider (credentials/basic-credentials-provider
                                                   {:access-key-id     "test"

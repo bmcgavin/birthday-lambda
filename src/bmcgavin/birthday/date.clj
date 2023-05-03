@@ -20,7 +20,7 @@
                            ld/parse
                            (ld/with-year now-year)
                            ld/at-start-of-day)
-        days (.toDays (d/between now-date date-this-year))]
+        days (d/to-days (d/between now-date date-this-year))]
     (cond
       (>= days 0)
       days
@@ -29,4 +29,4 @@
                                ld/parse
                                (ld/with-year (+ 1 now-year))
                                ld/at-start-of-day)]
-        (.toDays (d/between now-date date-next-year))))))
+        (d/to-days (d/between now-date date-next-year))))))

@@ -37,18 +37,6 @@
 }, {
   "name" : "bmcgavin.birthday.date__init"
 }, {
-  "name" : "bmcgavin.birthday.db.dynamodb$eval147",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "bmcgavin.birthday.db.dynamodb$eval268",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
   "name" : "bmcgavin.birthday.db.dynamodb__init"
 }, {
   "name" : "bmcgavin.birthday.db.mock__init"
@@ -461,10 +449,6 @@
 }, {
   "name" : "clojure.java.io__init"
 }, {
-  "name" : "clojure.lang.AFunction",
-  "allPublicFields" : true,
-  "queryAllPublicMethods" : true
-}, {
   "name" : "clojure.lang.APersistentMap"
 }, {
   "name" : "clojure.lang.APersistentMap$KeySeq"
@@ -502,9 +486,6 @@
 }, {
   "name" : "clojure.lang.IFn"
 }, {
-  "name" : "clojure.lang.IFn$OLO",
-  "queryAllPublicMethods" : true
-}, {
   "name" : "clojure.lang.IHashEq"
 }, {
   "name" : "clojure.lang.IKVReduce"
@@ -535,10 +516,6 @@
 }, {
   "name" : "clojure.lang.ISeq"
 }, {
-  "name" : "clojure.lang.IType",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
-}, {
   "name" : "clojure.lang.Keyword"
 }, {
   "name" : "clojure.lang.LazilyPersistentVector"
@@ -556,21 +533,13 @@
 }, {
   "name" : "clojure.lang.MapEquivalence"
 }, {
-  "name" : "clojure.lang.MethodImplCache",
-  "queryAllPublicMethods" : true
-}, {
-  "name" : "clojure.lang.MultiFn",
-  "queryAllPublicMethods" : true,
-  "queryAllPublicConstructors" : true
+  "name" : "clojure.lang.MultiFn"
 }, {
   "name" : "clojure.lang.Murmur3"
 }, {
   "name" : "clojure.lang.Named"
 }, {
   "name" : "clojure.lang.Namespace",
-  "queryAllPublicMethods" : true
-}, {
-  "name" : "clojure.lang.Numbers",
   "queryAllPublicMethods" : true
 }, {
   "name" : "clojure.lang.PersistentArrayMap",
@@ -580,8 +549,7 @@
     "parameterTypes" : [ "java.util.Map" ]
   } ]
 }, {
-  "name" : "clojure.lang.PersistentHashMap",
-  "queryAllPublicMethods" : true
+  "name" : "clojure.lang.PersistentHashMap"
 }, {
   "name" : "clojure.lang.PersistentHashSet"
 }, {
@@ -611,8 +579,7 @@
 }, {
   "name" : "clojure.lang.TaggedLiteral"
 }, {
-  "name" : "clojure.lang.Util",
-  "queryAllPublicMethods" : true
+  "name" : "clojure.lang.Util"
 }, {
   "name" : "clojure.lang.Var",
   "queryAllPublicMethods" : true
@@ -721,9 +688,7 @@
 }, {
   "name" : "cognitect.aws.endpoint__init"
 }, {
-  "name" : "cognitect.aws.http.HttpClient",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "cognitect.aws.http.HttpClient"
 }, {
   "name" : "cognitect.aws.http.cognitect",
   "allDeclaredMethods" : true,
@@ -731,99 +696,23 @@
   "allDeclaredConstructors" : true,
   "allPublicConstructors" : true
 }, {
-  "name" : "cognitect.aws.http.cognitect$create",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.http.cognitect$eval149",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.http.cognitect$eval151",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.http.cognitect$eval155",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.http.cognitect$eval259",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.http.cognitect$eval263",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.http.cognitect__init"
 }, {
   "name" : "cognitect.aws.http__init"
 }, {
   "name" : "cognitect.aws.interceptors__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval270",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.ec2__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval272",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.json__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval276",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.query__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval280",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.rest__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval282",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.rest_json__init"
 }, {
-  "name" : "cognitect.aws.protocols.json$eval288",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.protocols.json$eval292",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.protocols.json$eval296",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.aws.protocols.json$eval303",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
+  "name" : "cognitect.aws.protocols.rest_xml__init"
 }, {
   "name" : "cognitect.aws.protocols__init"
 }, {
@@ -853,175 +742,13 @@
   "allDeclaredConstructors" : true,
   "allPublicConstructors" : true
 }, {
-  "name" : "cognitect.http_client$append_buffer",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$configure_jetty_announce",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$create",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$empty_bbuf",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$error__GT_anomaly",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$error__GT_category",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval157",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval161",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval165",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval202",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval205",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval207",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval209",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval226",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval228",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$eval234",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$expand_buffer",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$format_headers",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$map__GT_jetty_request",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$on_complete",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$on_content",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$on_failure",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$on_headers",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$ssl_context_factory",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$stop",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$submit",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
-  "name" : "cognitect.http_client$unflip",
-  "methods" : [ {
-    "name" : "<init>",
-    "parameterTypes" : [ ]
-  } ]
-}, {
   "name" : "cognitect.http_client.Client",
   "allPublicFields" : true,
   "queryAllPublicConstructors" : true
 }, {
-  "name" : "cognitect.http_client.IClient",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "cognitect.http_client.IClient"
+}, {
+  "name" : "cognitect.http_client__init"
 }, {
   "name" : "com.amazonaws.ClientConfiguration",
   "allDeclaredMethods" : true,
@@ -1489,8 +1216,7 @@
   "name" : "java.util.List",
   "queryAllPublicMethods" : true
 }, {
-  "name" : "java.util.Locale",
-  "allPublicFields" : true
+  "name" : "java.util.Locale"
 }, {
   "name" : "java.util.Map"
 }, {
@@ -1540,8 +1266,7 @@
 }, {
   "name" : "java.util.concurrent.ThreadLocalRandom"
 }, {
-  "name" : "java.util.concurrent.TimeUnit",
-  "allPublicFields" : true
+  "name" : "java.util.concurrent.TimeUnit"
 }, {
   "name" : "java.util.concurrent.TimeoutException"
 }, {
@@ -1656,21 +1381,13 @@
   "name" : "org.eclipse.jetty.client.api.Response",
   "queryAllPublicMethods" : true
 }, {
-  "name" : "org.eclipse.jetty.client.api.Response$CompleteListener",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "org.eclipse.jetty.client.api.Response$CompleteListener"
 }, {
-  "name" : "org.eclipse.jetty.client.api.Response$ContentListener",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "org.eclipse.jetty.client.api.Response$ContentListener"
 }, {
-  "name" : "org.eclipse.jetty.client.api.Response$FailureListener",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "org.eclipse.jetty.client.api.Response$FailureListener"
 }, {
-  "name" : "org.eclipse.jetty.client.api.Response$HeadersListener",
-  "queryAllDeclaredMethods" : true,
-  "queryAllPublicMethods" : true
+  "name" : "org.eclipse.jetty.client.api.Response$HeadersListener"
 }, {
   "name" : "org.eclipse.jetty.client.api.Result",
   "queryAllPublicMethods" : true
